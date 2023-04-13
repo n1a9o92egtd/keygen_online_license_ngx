@@ -1,0 +1,33 @@
+ngx_addon_name=ngx_http_license_module
+
+HTTP_MODULES="$HTTP_MODULES ngx_http_license_module"
+
+EXECUTE_SRCS="  $ngx_addon_dir/ngx_http_license_module.c                    \
+                $ngx_addon_dir/../keygen/keygen.cpp                         \
+                $ngx_addon_dir/../keygen/keygen_tester.cpp                  \
+                $ngx_addon_dir/../keygen/keygenme/cpu.cpp                   \
+                $ngx_addon_dir/../keygen/keygenme/instruction.cpp           \
+                $ngx_addon_dir/../keygen/keygenme/keygenme.cpp              \
+                $ngx_addon_dir/ngx_http_license_post.c              	    \
+                $ngx_addon_dir/ngx_http_license_get.c					    \
+                $ngx_addon_dir/ngx_query_args.c                             \
+                $ngx_addon_dir/ngx_base64_des.c                             \
+                $ngx_addon_dir/ngx_base.c                                   \
+                $ngx_addon_dir/../third_party/cJSON/cJSON.c                 \
+                "
+EXECUTE_DEPS="  $ngx_addon_dir/ngx_http_license_post.h                      \
+                $ngx_addon_dir/../keygen/keygen.h                           \
+                $ngx_addon_dir/../keygen/keygen_tester.h                    \
+                $ngx_addon_dir/../keygen/keygenme/cpu.h                     \
+                $ngx_addon_dir/../keygen/keygenme/instruction.h             \
+                $ngx_addon_dir/../keygen/keygenme/keygenme.h                \
+                $ngx_addon_dir/ngx_http_license_get.h                 	    \
+                $ngx_addon_dir/ngx_query_args.h                             \
+                $ngx_addon_dir/ngx_base64_des.h                             \
+                $ngx_addon_dir/ngx_base.h                                   \
+                $ngx_addon_dir/../third_party/cJSON/cJSON.h                 \
+                "
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $EXECUTE_SRCS"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $EXECUTE_DEPS"
+
+CORE_LIBS="$CORE_LIBS "
